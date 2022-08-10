@@ -3,7 +3,7 @@
     {
       "id": 1,
       "message": "Fixed Something",
-      "attention": false,
+      "attention": true,
       "date": "02-08-2022",
       "tech": "Sam Smith"
     },
@@ -15,16 +15,16 @@
       "tech": "Sam Smith"
     },
     {
-      "id": 1,
+      "id": 3,
       "message": "Fixed Something",
       "attention": false,
       "date": "02-08-2022",
       "tech": "Jane Doe"
     },
     {
-      "id": 3,
+      "id": 4,
       "message": "Fixed Something",
-      "attention": false,
+      "attention": true,
       "date": "02-08-2022",
       "tech": "Ken Tucky"
     }

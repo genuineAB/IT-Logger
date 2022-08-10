@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import LogsItem from './LogsItem';
+import PreLoader from '../layout/PreLoader';
 
 const Logs = () => {
     const [logs, setLogs] = useState([]);
@@ -19,7 +21,7 @@ const Logs = () => {
 
     if(loading){
         return(
-            <h4>loading...</h4>
+            <PreLoader />
         )
     }
   return (
@@ -28,7 +30,7 @@ const Logs = () => {
             <h4 className='center'>System Logs</h4>
         </li>
         {!loading && logs.length === 0 ? (<p className='center'></p>) : (
-            logs.map(log => <li>{log.message}</li>)
+            logs.map(log => <LogsItem log={log} key={log.id}/>)
         )}
     </ul>
   )
