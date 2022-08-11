@@ -11,12 +11,20 @@ const Logs = () => {
         getLogs();
     }, [])
 
-    const getLogs = async () => {
+    const getLogs = async (res) => {
         setLoading(true);
-        const res = await axios.get('/logs');
 
-        setLogs(res.data);
-        setLoading(false);
+        try {
+            const res = await axios.get('/logs');
+
+            setLogs(res.data);
+            setLoading(false);
+
+        } catch (error) {
+            console.error(error.message)
+            res.status(400).send("Server Error")
+        }
+        
     }
 
     if(loading){

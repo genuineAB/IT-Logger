@@ -10,12 +10,19 @@ const TechListModal = () => {
         getTechs();
     }, [])
 
-    const getTechs = async () => {
+    const getTechs = async (res) => {
         setLoading(true);
-        const res = await axios.get('/technicians');
+        try {
+            const res = await axios.get('/technicians');
 
-        setTechs(res.data);
-        setLoading(false);
+            setTechs(res.data);
+            setLoading(false);
+            
+        } catch (error) {
+            console.error(error.message)
+            res.status(400).send("Server Error")
+        }
+        
     }
 
    
