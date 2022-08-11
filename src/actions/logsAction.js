@@ -26,6 +26,7 @@ export const getLogs = () => async dispatch => {
 }
 
 
+
 //Set Loading to True
 export const setLoading = () => {
     return {
@@ -33,3 +34,4 @@ export const setLoading = () => {
     }
 }
 
+export default getLogs;
