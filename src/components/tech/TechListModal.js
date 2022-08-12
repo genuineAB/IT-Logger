@@ -20,7 +20,7 @@ const TechListModal = () => {
             
         } catch (error) {
             console.error(error.message)
-            res.status(400).send("Server Error")
+            // res.status(400).send("Server Error")
         }
         
     }

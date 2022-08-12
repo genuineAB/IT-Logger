@@ -1,10 +1,10 @@
 import {
-    GET_LOGS, SET_LOADING, LOGS_ERROR
+    GET_LOGS, SET_LOADING, LOGS_ERROR, ADD_LOGS
 } from './types';
 import axios from 'axios';
 
 
-
+//Get Logs
 export const getLogs = () => async dispatch => {
   try {
     setLoading();
@@ -25,7 +25,33 @@ export const getLogs = () => async dispatch => {
   }
 }
 
+//Add Logs
+export const addLogs = (logs) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
 
+    try {
+      setLoading();
+  
+      const res = await axios.post('/logs', logs, config);
+  
+      dispatch({
+          type: ADD_LOGS,
+          payload: res.data
+      })
+  
+  
+    } catch (error) {
+      dispatch({
+          type: LOGS_ERROR,
+          payload: error.response.data
+      })
+    }
+  }
+  
 
 //Set Loading to True
 export const setLoading = () => {

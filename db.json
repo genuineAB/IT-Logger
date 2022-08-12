@@ -1,33 +1,6 @@
 {
   "logs": [
-    {
-      "id": 1,
-      "message": "Fixed Something",
-      "attention": true,
-      "date": "02-08-2022",
-      "tech": "Sam Smith"
-    },
-    {
-      "id": 2,
-      "message": "Fixed Something",
-      "attention": false,
-      "date": "02-08-2022",
-      "tech": "Sam Smith"
-    },
-    {
-      "id": 3,
-      "message": "Fixed Something",
-      "attention": false,
-      "date": "02-08-2022",
-      "tech": "Jane Doe"
-    },
-    {
-      "id": 4,
-      "message": "Fixed Something",
-      "attention": true,
-      "date": "02-08-2022",
-      "tech": "Ken Tucky"
-    }
+    
   ],
   "technicians": [
     {
