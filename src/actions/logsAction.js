@@ -1,5 +1,5 @@
 import {
-    GET_LOGS, SET_LOADING, LOGS_ERROR, ADD_LOGS, DELETE_LOGS
+    GET_LOGS, SET_LOADING, LOGS_ERROR, ADD_LOGS, DELETE_LOGS, SET_CURRENT, UPDATE_LOG, CLEAR_CURRENT
 } from './types';
 import axios from 'axios';
 
@@ -70,6 +70,47 @@ export const addLogs = (logs) => async dispatch => {
     }
   }
 
+//Update Logs
+export const updateLogs = (log) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    try {
+  
+      const res = await axios.patch(`/logs/${log.id}`, log, config);
+  
+      dispatch({
+          type: UPDATE_LOG,
+          payload: res.data
+      })
+      
+      setLoading();
+  
+    } catch (error) {
+      dispatch({
+          type: LOGS_ERROR,
+          payload: error.response.data
+      })
+    }
+  }
+  
+//Set Current
+export const setCurrent = (log) => dispatch => {
+    dispatch({
+        type: SET_CURRENT,
+        payload: log
+    })
+}
+
+//Clear Current
+export const clearCurrent = (dispatch) => {
+    dispatch({
+        type: CLEAR_CURRENT
+    })
+}
 //Set Loading to True
 export const setLoading = () => {
     return {

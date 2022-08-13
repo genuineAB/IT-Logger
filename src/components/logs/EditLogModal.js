@@ -1,17 +1,38 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
+import { connect } from 'react-redux/es/exports';
+import PropTypes from 'prop-types';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import { updateLogs } from '../../actions/logsAction';
 
-const EditLogModal = () => {
+const EditLogModal = ({updateLogs, current}) => {
     const [message, setMessage] = useState('');
     const [attention, setAttention] = useState(false);
     const [tech, setTech] = useState('');
+
+    useEffect(() => {
+        if(current){
+            setMessage(current.message);
+            setAttention(current.attention);
+            setTech(current.tech);
+        }
+    }, [current])
 
     const onSubmit = () => {
         if(message.trim().length === 0 || tech.trim().length === 0){
             M.toast({html: 'Please enter a message and tech'});
         }
         else{
-            console.log(message, tech, attention);
+            const updateLog = {
+                id: current.id,
+                message,
+                attention,
+                tech,
+                date: new Date()
+            }
+            updateLogs(updateLog);
+            M.toast({html: 'Logs Updated'});
+            window.location.reload();
+            
 
             //Clear Fields
             setMessage('');
@@ -29,9 +50,6 @@ const EditLogModal = () => {
             <div className='row'>
                 <div className='input-field'>
                     <input type='text' name='message' value={message} onChange={e => setMessage(e.target.value)} />
-                    <label htmlFor='message'className='active'>
-                        Log Message
-                    </label>
                 </div>
             </div>
 
@@ -65,7 +83,6 @@ const EditLogModal = () => {
         </div>
 
         <div className='modal-footer'>
-            {/* <a href='#!' onClick={onSubmit} className='modal-close waves-effect waves-green btn-flat' >Enter</a> */}
             <button className="modal-close btn blue waves-effect waves-light" type="submit" name="action" onClick={onSubmit}>Enter
                 <i className="material-icons right">send</i>
             </button>
@@ -78,4 +95,14 @@ const modalStyle = {
     height: '75%'
 }
 
-export default EditLogModal
+EditLogModal.propTypes = {
+    updateLogs: PropTypes.func.isRequired,
+    current: PropTypes.object
+}
+
+const mapStateToProps = (state) => {
+    return {
+        current: state.log.current
+    }
+}
+export default connect(mapStateToProps, {updateLogs})(EditLogModal);
