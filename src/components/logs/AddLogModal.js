@@ -74,7 +74,6 @@ const AddLogModal = ({addLogs}) => {
         </div>
 
         <div className='modal-footer'>
-            {/* <a href='#!' onClick={onSubmit} className='modal-close waves-effect waves-green btn-flat' >Enter</a> */}
             <button className="modal-close btn blue waves-effect waves-light" type="submit" name="action" onClick={onSubmit}>Enter
                 <i className="material-icons right">send</i>
             </button>

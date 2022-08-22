@@ -25,6 +25,31 @@ export const getTechs = () => async dispatch => {
     }
   }
   
+
+  //Add Techs
+  export const addTechs = tech => async dispatch => {
+    const config = {
+        headers:{
+            'Content-Type': 'application/json'
+        } 
+    }
+    try {
+        setLoading();
+        
+        const res = await axios.post('/techs', tech, config);
+
+        dispatch({
+            type: ADD_TECH,
+            payload: res.data
+        });
+    } catch (error) {
+        dispatch({
+            type: TECH_ERROR,
+            payload: error.response.statusText
+        })
+        
+    }
+  }
  
 
   //Set Loading to True
