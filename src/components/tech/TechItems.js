@@ -1,13 +1,21 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { connect } from 'react-redux/es/exports';
+import PropTypes from 'prop-types';
+import M from 'materialize-css/dist/js/materialize.min.js';
+import { deleteTech } from '../../actions/techAction';
 
-const TechItems = ({tech}) => {
+const TechItems = ({tech:{id, firstName, lastName}, deleteTech}) => {
+  const onDelete = () => {
+    deleteTech(id);
+    M.toast({html: `${firstName} ${lastName} deleted from technician list`});
+    window.location.reload();
+  }
   return (
     <li className='collection-item'>
         <div>
-            {tech.firstName} {tech.lastName}
+            {firstName} {lastName}
 
-            <a href='#!' className='secondary-content'>
+            <a href='#!' className='secondary-content' onClick={onDelete}>
               <i className='material-icons grey-text'>delete</i>
             </a>
         </div>
@@ -17,7 +25,8 @@ const TechItems = ({tech}) => {
 }
 
 TechItems.propTypes = {
-    tech: PropTypes.object.isRequired
+    tech: PropTypes.object.isRequired,
+    deleteTech: PropTypes.func.isRequired
 }
 
-export default TechItems
+export default connect(null, {deleteTech})(TechItems)

@@ -35,7 +35,7 @@ export const getTechs = () => async dispatch => {
     }
     try {
         setLoading();
-        
+
         const res = await axios.post('/techs', tech, config);
 
         dispatch({
@@ -51,6 +51,23 @@ export const getTechs = () => async dispatch => {
     }
   }
  
+  //Delete Techs
+  export const deleteTech = (id) => async dispatch => {
+    try {
+        await axios.delete(`/techs/${id}`);
+
+        dispatch({
+            type: DELETE_TECH,
+            payload: id
+        })
+        
+    } catch (error) {
+        dispatch({
+            type: TECH_ERROR,
+            payload: error.response.statusText
+        })
+    }
+  }
 
   //Set Loading to True
   export const setLoading = () => {
