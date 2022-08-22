@@ -60,11 +60,7 @@ const EditLogModal = ({updateLogs, current}) => {
                         <option value='' disabled>
                             Select Technician
                         </option>
-                        <option value="Sam Smith">Sam Smith</option>
-                        <option value="Jane Doe">Jane Doe</option>
-                        <option value="Ken Tucky">Ken Tucky</option>
-                        <option value="Kuber Netes">Kuber Netes</option>
-                        {/* <TechSelectOption /> */}
+                        <TechSelectOption />
 
                     </select>
                 </div>

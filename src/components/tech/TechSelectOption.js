@@ -23,7 +23,7 @@ TechSelectOption.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        tech: state.tech
+        tech: state.tech.state
     }
 }
 export default connect(mapStateToProps, {getTechs})(TechSelectOption)

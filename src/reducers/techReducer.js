@@ -21,7 +21,7 @@ const techReducer = (state=initialState, action) => {
     }
 
     case GET_TECHS:
-        console.log(action.payload)
+        // console.log(action.payload)
         return {
             ...state,
             techs: action.payload,
