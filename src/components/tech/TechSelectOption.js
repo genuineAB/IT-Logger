@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 import getTechs from '../../actions/techAction';
 
 const TechSelectOption = ({tech: {techs, loading}, getTechs}) => {
-    useEffect(() => {
-        getTechs();
-        // eslint-disable-next-line
-    }, [])
+    // useEffect(() => {
+    //     getTechs();
+    //     // eslint-disable-next-line
+    // }, []);
+
+    getTechs();
+    
   return (
-    !loading && techs !== null && techs.map(tech => <option key={tech.id} value={`${tech.firstName} ${tech.lastName}`}>
+    !loading && techs !== null && techs !== undefined && techs.map(tech => <option key={tech.id} value={`${tech.firstName} ${tech.lastName}`}>
         {tech.firstName} {tech.lastName}
     </option>)
   )

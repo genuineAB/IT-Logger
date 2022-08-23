@@ -16,7 +16,6 @@ export const getTechs = () => async dispatch => {
           payload: res.data
       })
   
-  
     } catch (error) {
       dispatch({
           type: TECH_ERROR,
@@ -60,7 +59,7 @@ export const getTechs = () => async dispatch => {
             type: DELETE_TECH,
             payload: id
         })
-        
+
     } catch (error) {
         dispatch({
             type: TECH_ERROR,
