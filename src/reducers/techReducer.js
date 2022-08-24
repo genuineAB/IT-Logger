@@ -1,6 +1,6 @@
 
 import {
-    GET_TECHS, ADD_TECH, DELETE_TECH, TECH_ERROR, SET_LOADING, UPDATE_TECH
+    GET_TECHS, ADD_TECH, DELETE_TECH, TECH_ERROR, SET_LOADING
 } from '../actions/types';
 
 const initialState = {
@@ -22,7 +22,6 @@ const techReducer = (state=initialState, action) => {
     }
 
     case GET_TECHS:
-        // console.log(action.payload)
         return {
             ...state,
             techs: action.payload,

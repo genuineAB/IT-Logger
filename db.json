@@ -3,8 +3,8 @@
     {
       "message": "Generator overheating 007",
       "attention": false,
-      "tech": "Sam Smith",
-      "date": "2022-08-23T10:32:43.650Z",
+      "tech": "Kuber Netes",
+      "date": "2022-08-24T09:35:31.789Z",
       "id": 1
     },
     {
@@ -16,9 +16,9 @@
     },
     {
       "message": "Changed Electric Bulb",
-      "attention": true,
-      "tech": "Jimmy Jatt",
-      "date": "2022-08-23T09:55:43.049Z",
+      "attention": false,
+      "tech": "Ken Tucky",
+      "date": "2022-08-24T09:35:47.544Z",
       "id": 3
     }
   ],
@@ -37,11 +37,6 @@
       "firstName": "Sam",
       "lastName": "Smith",
       "id": 6
-    },
-    {
-      "firstName": "Jimmy",
-      "lastName": "Jatt",
-      "id": 7
     }
   ]
 }

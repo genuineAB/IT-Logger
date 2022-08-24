@@ -1,5 +1,5 @@
 import {
-    GET_TECHS, ADD_TECH, DELETE_TECH, TECH_ERROR, SET_LOADING, UPDATE_TECH
+    GET_TECHS, ADD_TECH, DELETE_TECH, TECH_ERROR, SET_LOADING
 } from './types';
 import axios from 'axios';
 
